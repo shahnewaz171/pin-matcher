@@ -1,4 +1,23 @@
 // Pin generator
+function getPin(){
+    // let random = Math.floor(Math.random()*1000);
+    const random = Math.random()*10000;
+    const pin = (random + '').split('.')[0];
+
+    if(pin.length === 4){
+        return pin;
+    }
+    else{
+        // console.log("shorter pin", pin);
+        return getPin();
+    }
+}
+
+// display pin generator
+function generatePin(){
+    const pinInput = document.getElementById('pin-screen');
+    pinInput.value = getPin();
+}
 
 
 // Input Section
@@ -13,6 +32,10 @@ for(item of buttons){
         if(buttonText == "C"){
             screenValue = "";
             screen.value = screenValue;
+        }
+        else if(buttonText == "B"){
+            screenValue = screen.value.slice(0, - 1);
+            screen.value = screenValue; 
         }
         else{
             screenValue += buttonText;
