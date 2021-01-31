@@ -25,11 +25,11 @@ buttonContainer.addEventListener('click', function(event){
     const digit = event.target.innerText;
 
     let typedInput = document.getElementById('input-screen');
-    if(digit == 'C'){
+    if(digit === 'C'){
         //handle clear;
         typedInput.value= "";
     }
-    else if(digit == 'B'){
+    else if(digit === 'B'){
         //handle backspace
         typedInput.value= typedInput.value.slice(0, - 1);
     }
@@ -40,14 +40,36 @@ buttonContainer.addEventListener('click', function(event){
 
 
 //connection between pin generator and input section
+// function verifyPin(){
+//     const pin = document.getElementById('pin-screen').value;
+//     const typedPin = document.getElementById('input-screen').value;
+
+//     if(pin === typedPin){
+//         document.getElementById('correct-pin').style.display = 'block';
+//         document.getElementById('incorrect-pin').style.display = 'none';
+//     }
+//     else if(pin != typedPin){
+//         document.getElementById('incorrect-pin').style.display = 'block';
+//         document.getElementById('correct-pin').style.display = 'none';
+//     }
+// }
+
+
+//Another Way
 function verifyPin(){
     const pin = document.getElementById('pin-screen').value;
     const typedPin = document.getElementById('input-screen').value;
 
     if(pin === typedPin){
-        document.getElementById('correct-pin').style.display = 'block';
+        
+        displayMatchResult('block', 'none');
     }
-    else if(pin != typedPin){
-        document.getElementById('incorrect-pin').style.display = 'block';
+    else{
+        displayMatchResult('none', 'block');
     }
+}
+
+function displayMatchResult(correctStatus, incorrectStatus){
+    document.getElementById('correct-pin').style.display = correctStatus;
+    document.getElementById('incorrect-pin').style.display = incorrectStatus;
 }
