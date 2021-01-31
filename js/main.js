@@ -20,23 +20,30 @@ function generatePin(){
 
 
 //Handle Calculator button event
-const buttonContainer = document.getElementById('digits-container');
-buttonContainer.addEventListener('click', function(event){
-    const digit = event.target.innerText;
+let buttonContainer = document.getElementsByClassName('calc-button-row');
+let keyValue = "";
 
-    let typedInput = document.getElementById('input-screen');
-    if(digit === 'C'){
-        //handle clear;
-        typedInput.value= "";
-    }
-    else if(digit === 'B'){
-        //handle backspace
-        typedInput.value= typedInput.value.slice(0, - 1);
-    }
-    else{
-        typedInput.value = typedInput.value + digit;
-    }
-});
+for (let i = 0; i < buttonContainer.length; i++) {
+    buttonContainer[i].addEventListener('click', function(e){
+        let digit = e.target.innerText;
+    
+        let typedInput = document.getElementById('input-screen');
+        if(digit.length == 1){
+            if(digit === 'C'){
+                //handle clear;
+                typedInput.value= "";
+            }
+            else if(digit === 'B'){
+                //handle backspace
+                typedInput.value= typedInput.value.slice(0, - 1);
+            }
+            else{
+                typedInput.value = typedInput.value + digit;
+            }
+        }
+    });
+}
+
 
 
 //connection between pin generator and input section
@@ -76,3 +83,30 @@ function displayMatchResult(correctStatus, incorrectStatus){
     document.getElementById('correct-pin').style.display = correctStatus;
     document.getElementById('incorrect-pin').style.display = incorrectStatus;
 }
+
+//Wrong Count
+let maxWrongCount = 5;
+
+document.getElementById('submit').addEventListener('click', function(){
+    const pinScreen = document.getElementById('pin-screen');
+    let pinScreenNumber = parseInt(pinScreen.value);
+
+    const inputScreen = document.getElementById('input-screen');
+    let inputScreenNumber = parseInt(inputScreen.value);
+
+    if(pinScreenNumber === inputScreenNumber){
+        document.getElementById('incorrect-pin').style.display = 'none';
+        document.getElementById('correct-pin').style.display = 'block';
+    }
+    else{
+        if(maxWrongCount > 0){
+            maxWrongCount--;
+            document.getElementById('wrong-count').innerText = maxWrongCount;
+            document.getElementById('correct-pin').style.display = 'none';
+        }
+        else{
+            alert('You cannot answer more than five times incorrectly. Please reload this page and try again. Thank you');
+        }
+    }
+    
+});

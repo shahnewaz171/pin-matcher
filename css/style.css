@@ -62,11 +62,6 @@ input[type='text']:focus {
     text-align: right;
     color: #fff;
 }
-
-.calc-button-row {
-        
-}
-
 input:read-only{
     background-color: #3D4155 !important;
     opacity: 1;
@@ -115,7 +110,7 @@ input:read-only{
     padding: 5px 20px;
 }
 .notify-section{
-    width: 35%;
+    /* width: 35%; */
     margin: 0 auto;
 }
 .action-left {

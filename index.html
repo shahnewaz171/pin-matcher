@@ -21,7 +21,7 @@
                 <div class="input-section half-width">
                     <input class="form-control" type="text" name="input-screen" id="input-screen" readonly>
                     <div class="numbers">
-                        <div id="digits-container" class="calc-body">
+                        <div class="calc-body">
                             <div class="calc-button-row">
                                 <div class="button">7</div>
                                 <div class="button">8</div>
@@ -43,17 +43,19 @@
                                 <div class="button">C</div>
                             </div>
                             <div>
-                                <input onclick="verifyPin()" type="submit" class="submit-btn" value="Submit">
+                               <button onclick="verifyPin()" type="submit" class="submit-btn" id="submit">Submit</button>
+                                <p class="action-left"> <span id="wrong-count">5</span>  try left</p>
                             </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="notify-section">
+                <p class="notify" id="incorrect-pin">❌ Pin Didn't Match, Please try again</p>
+                <p class="notify" id="correct-pin">✅ Pin Matched... Secret door is opening for you</p>
+            </div>
         </div>
-        <div class="notify-section">
-            <p class="notify" id="incorrect-pin">❌ Pin Didn't Match, Please try again</p>
-            <p class="notify" id="correct-pin">✅ Pin Matched... Secret door is opening for you</p>
-        </div>
-    </div>
+    </div>    
 
     <footer class="text-center mt-3 text-white">
         <p><small>This Pin Generator made by &copy; Muhammad Shahnewaz, all right reserved</small></p>

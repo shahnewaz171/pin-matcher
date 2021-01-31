@@ -2,4 +2,13 @@
     .half-width {
         height: 535px;
     }
+    .notify-section{
+        width: 35%;
+    }
+    
+}
+@media only screen and (max-width: 767px){
+    .notify-section{
+        width: 100%;
+    }
 }
