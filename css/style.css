@@ -117,3 +117,9 @@ input[type='text']:focus {
     color: #FF3C5F;
     margin-top: 10px;
 }
+#incorrect-pin{
+    display: none;
+}
+#correct-pin{
+    display: none;
+}

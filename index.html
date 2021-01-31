@@ -19,9 +19,9 @@
             </div>
             <div class="col-md-6">
                 <div class="input-section half-width">
-                    <input class="form-control" type="text" name="screen" id="screen">
+                    <input class="form-control" type="text" name="input-screen" id="input-screen">
                     <div class="numbers">
-                        <div class="calc-body">
+                        <div id="digits-container" class="calc-body">
                             <div class="calc-button-row">
                               <div class="button">7</div>
                               <div class="button">8</div>
@@ -43,7 +43,7 @@
                                 <div class="button">C</div>
                             </div>
                             <div>
-                                <button type="submit" class="submit-btn">Submit</button>
+                                <input onclick="verifyPin()" type="submit" class="submit-btn" value="Submit">
                                 <p class="action-left">3 try left</p>
                             </div>
                     </div>
@@ -51,8 +51,8 @@
             </div>
         </div>
         <div class="notify-section">
-            <p class="notify">❌ Pin Didn't Match, Please try again</p>
-            <p class="notify">✅ Pin Matched... Secret door is opening for you</p>
+            <p class="notify" id="incorrect-pin">❌ Pin Didn't Match, Please try again</p>
+            <p class="notify" id="correct-pin">✅ Pin Matched... Secret door is opening for you</p>
         </div>
     </div>
 

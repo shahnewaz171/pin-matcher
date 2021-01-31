@@ -12,7 +12,6 @@ function getPin(){
         return getPin();
     }
 }
-
 // display pin generator
 function generatePin(){
     const pinInput = document.getElementById('pin-screen');
@@ -20,26 +19,35 @@ function generatePin(){
 }
 
 
-// Input Section
-let screen = document.getElementById('screen');
-let buttons = document.getElementsByClassName('button');
-let screenValue = '';
+//Handle Calculator button event
+const buttonContainer = document.getElementById('digits-container');
+buttonContainer.addEventListener('click', function(event){
+    const digit = event.target.innerText;
 
-for(item of buttons){
-    item.addEventListener('click', (e)=>{
-        buttonText = e.target.innerText;
-        // console.log('Button text is:', buttonText);
-        if(buttonText == "C"){
-            screenValue = "";
-            screen.value = screenValue;
-        }
-        else if(buttonText == "B"){
-            screenValue = screen.value.slice(0, - 1);
-            screen.value = screenValue; 
-        }
-        else{
-            screenValue += buttonText;
-            screen.value = screenValue;
-        }
-    });
+    let typedInput = document.getElementById('input-screen');
+    if(digit == 'C'){
+        //handle clear;
+        typedInput.value= "";
+    }
+    else if(digit == 'B'){
+        //handle backspace
+        typedInput.value= typedInput.value.slice(0, - 1);
+    }
+    else{
+        typedInput.value = typedInput.value + digit;
+    }
+});
+
+
+//connection between pin generator and input section
+function verifyPin(){
+    const pin = document.getElementById('pin-screen').value;
+    const typedPin = document.getElementById('input-screen').value;
+
+    if(pin === typedPin){
+        document.getElementById('correct-pin').style.display = 'block';
+    }
+    else if(pin != typedPin){
+        document.getElementById('incorrect-pin').style.display = 'block';
+    }
 }
