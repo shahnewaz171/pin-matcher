@@ -13,13 +13,13 @@
         <div class="row">
             <div class="col-md-6">
                 <div class="pin-generator half-width">
-                    <input class="form-control" type="text" name="pin-screen" id="pin-screen">
+                    <input class="form-control" type="text" name="pin-screen" id="pin-screen" readonly>
                     <button class="generate-btn" id="generate-btn" onclick="generatePin()">Generate Pin</button>
                 </div>
             </div>
             <div class="col-md-6">
                 <div class="input-section half-width">
-                    <input class="form-control" type="text" name="input-screen" id="input-screen">
+                    <input class="form-control" type="text" name="input-screen" id="input-screen" readonly>
                     <div class="numbers">
                         <div id="digits-container" class="calc-body">
                             <div class="calc-button-row">
@@ -44,7 +44,6 @@
                             </div>
                             <div>
                                 <input onclick="verifyPin()" type="submit" class="submit-btn" value="Submit">
-                                <p class="action-left">3 try left</p>
                             </div>
                     </div>
                 </div>

@@ -67,6 +67,11 @@ input[type='text']:focus {
         
 }
 
+input:read-only{
+    background-color: #3D4155 !important;
+    opacity: 1;
+}
+
 .button {
     width: 20%;
     background: #425062;

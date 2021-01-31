@@ -60,11 +60,14 @@ function verifyPin(){
     const pin = document.getElementById('pin-screen').value;
     const typedPin = document.getElementById('input-screen').value;
 
-    if(pin === typedPin){
-        
+    
+    if(pin === "" && typedPin == ""){
+        // alert('Error');
+    }
+    else if(pin === typedPin){
         displayMatchResult('block', 'none');
     }
-    else{
+    else if(pin !== typedPin){
         displayMatchResult('none', 'block');
     }
 }
